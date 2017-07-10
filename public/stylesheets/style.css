@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    min-height: 100%;
+    position: relative;
+}
+h1{
+    margin: 0;
+}
+body {
+    background: url('../img/bg.jpg') no-repeat;
+    background-size: cover;
+    font-family: 'Helvetica-neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+    height: 90px;
+    margin: 0 auto;
+}
+.welcomeChef {
+    padding: 10px 0;
+    font-family: 'Coda', cursive;
+}
+.btnCreateNewRecipe {
+    background: transparent;
+    color: #3a3a3a;
+    border: 1px solid #3a3a3a;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 8px;
+    font-size: .9em;
+    width: 125px;
+}
+.profile {
+    background: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.94));
+    height: 90px;
+    border-bottom: 1px solid #777777;
+}
+.searchTitles {
+    /*margin-left: auto;*/
+    /*margin-right: 10px;*/
+    width: 275px;
+    border: 1px solid #b7b7b7;
+    border-radius: 3px;
+    font-size: .9em;
+    padding: 8px;
+}
+.searchTitles::placeholder {
+    font-style: italic;
+    color: #b7b7b7;
+    font-weight: 300;
+}
+.contentList {
+    /*height: calc(100vh - 90px);*/
+    /*background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));*/
+}
+.logo {
+    padding: 25px 0 5px 0;
+    width: 280px;
+}
+.tagline {
+    margin-top: 0;
+    font-style: italic;
+}
+.welcomeBox {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    border: 2px solid #4a4a4a;
+    width: 550px;
+    height: 300px;
+    padding: 20px;
+    text-align: center;
+}
+.outerWelcomeBox {
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 580px;
+    height: 330px;
+	transform: translate(50%, -50%);
+}
+.primary-btn{
+    display: block;
+    width: 335px;
+    height: 45px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: black;
+    border: 1px solid #543F32;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 40px;
+}
+.primary-btn:focus {
+    outline: none;
+}
+.authBtn {
+    background-color: #F5D9B3;
+    margin-top: 35px;
+}
+.createBtn {
+    background-color: transparent;
+}
+.footer {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    text-transform: uppercase;
+    color: #3a3a3a;
+    bottom: 10px;
+    font-size: .9em;
+    word-spacing: 2px;
+}
+.formGroup label {
+    display: block;
+    text-align: left;
+    margin-bottom: -5px;
+    padding-left: 8px;
+}
+.form-control {
+    width: 360px;
+    height: 35px;
+    padding: 8px;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #a4a4a4;
+    margin: 12px auto;
+    font-size: 1em;
+}
+.form-control::placeholder {
+    font-style: italic;
+    color: #b7b7b7;
+    font-weight: 300;
+}
+.loginForm {
+    margin-top: 25px;
+}
+.loginBtn {
+    background-color: #F5D9B3;
+    font-weight: 300;
+    width: 360px;
+}
+.outerSignUpBox {
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7));
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 580px;
+    height: 600px;
+	transform: translate(50%, -50%);
+}
+.innerSignUpBox {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    border: 2px solid #4a4a4a;
+    width: 550px;
+    height: 570px;
+    padding: 20px;
+    text-align: center;
+}
+.registerBtn {
+    margin-top: 35px;
+}
+.signUpForm {
+    width: 360px;
+    margin: 35px auto 5px auto;
+}

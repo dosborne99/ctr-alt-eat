@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    header.profile
+        div.container
+            //- h1.welcomeChef Hello, chef #{name}!
+            input.searchTitles(type='text' placeholder='Search your recipe titles...')
+            button.btnCreateNewRecipe New Recipe
+    div.contentList

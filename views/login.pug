@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    .outerWelcomeBox
+        .welcomeBox
+            img(class="logo" src="/img/logo.svg")
+            p.tagline your computerized recipe book
+            form.loginForm(method='POST' action='/login')
+                input.form-control(type='text', placeholder='Email Address' name='email' autofocus)
+                input.form-control(type='password', placeholder='Password' name='password')
+                button.primary-btn.loginBtn(type='submit') Log In

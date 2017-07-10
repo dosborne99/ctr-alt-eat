@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    .outerSignUpBox
+        .innerSignUpBox
+            img(class="logo" src="/img/logo.svg")
+            p.tagline your computerized recipe book
+            form.signUpForm(method="POST" action="/register")
+                div.formGroup
+                    label(for="fullName") Name:
+                    input#name.form-control(type='text', placeholder='Full Name' name='fullName' autofocus)
+                div.formGroup
+                    label(for="email") Email:
+                    input#email.form-control(type='text', placeholder='Email Address' name='email')
+                div.formGroup
+                    label(for="password") Password:
+                    input#password.form-control(type='password', placeholder='Password' name='password')
+                div.formGroup
+                    label(for="confirmPassword") Confirm Password:
+                    input#confirmPassword.form-control(type='password', placeholder='Confirm Password' name='confirmPassword')
+                button.primary-btn.loginBtn.registerBtn(type='submit') Sign Up

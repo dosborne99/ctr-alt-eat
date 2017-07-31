@@ -2,6 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const fileUpload = require('express-fileupload');
+const viewRoutes = require('./routes/views');
+const userRoutes = require('./routes/users');
+const recipeRoutes = require('./routes/recipes');
 
 const {PORT, DATABASE_URL} = require('./config.js');
 
@@ -18,11 +22,17 @@ app.use(session({
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(fileUpload());
 app.set('view engine', 'pug');
 app.use(express.static('public'));
 
-const routes = require('./routes');
-app.use(routes);
+app.use('/', viewRoutes);
+app.use('/users', userRoutes);
+app.use('/recipes', recipeRoutes);
+
+app.use('*', function(req, res) {
+  res.redirect('login');
+});
 
 // ** connect to Mongo Database
 let server;
@@ -30,7 +40,7 @@ let server;
 //open server and connect to database
 function runServer(databaseUrl=DATABASE_URL, port=PORT) {
   return new Promise((resolve, reject) => {
-    mongoose.connect(databaseUrl, err => {
+    mongoose.connect(databaseUrl, {useMongoClient: true}, err => {
       if (err) {
         return reject(err);
       }

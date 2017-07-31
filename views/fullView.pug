@@ -1,0 +1,44 @@
+extends layout
+
+block content
+    header.profile
+        div.headerContainer
+                a(href='/' class='listLogo')
+                    img(src='/img/logo3.svg')
+                a.btnCreateNewRecipe.btnShowAll(href='/myrecipes') Show All
+                a.btnCreateNewRecipe(href='/create') Add Recipe
+                a.btnLogOut(href='/logout')
+                    i(class="fa fa-sign-out" aria-hidden="true")
+    section.mainContent
+        div.fullViewWrapper
+            - var imgPath = recipe.photo ? recipe.photo : '/img/noPhoto.svg';
+            - var imgBtnTooltip = recipe.photo ? "Change Photo" : "Add Photo";
+            - var recipeID = recipe._id;
+            .placeHolder
+                img#fullViewRecipePhoto(src=imgPath)
+            .singleViewHeader
+                div.titleDescriptionBlock
+                    h1 #{recipe.title}
+                    p.descriptionFullView #{recipe.description}
+                a.btnSingleViewHeader.btnRecipeDelete(title='Delete Recipe' data-id=recipeID)
+                    i(class="fa fa-trash" aria-hidden="true")
+                form(ref='uploadForm' id='uploadForm' method='POST' encType="multipart/form-data")
+                    input(type='file' id='imageUploadInput' data-id=recipeID name='sampleFile' class='custom-file-input' title=imgBtnTooltip)
+                a.btnSingleViewHeader(title='Edit Recipe')
+                    i(class="fa fa-pencil" aria-hidden="true")
+            hr.style-one
+            if(recipe.servings)
+                h2 Servings
+                p #{recipe.servings}
+                hr.style-one
+            h2 Ingredients
+            p.showCarriageReturns #{recipe.ingredients}
+            hr.style-one
+            h2 Directions
+            p.showCarriageReturns #{recipe.directions}
+            if(recipe.category)
+                hr.style-one
+                h2 Category
+                p #{recipe.category}
+block scripts
+    script(src="/js/app.js")

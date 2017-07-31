@@ -3,9 +3,11 @@ extends layout
 block content
     .outerWelcomeBox
         .welcomeBox
-            img(class="logo" src="/img/logo.svg")
+            img(class="logo" src="/img/logo3.svg")
             p.tagline your computerized recipe book
-            form.loginForm(method='POST' action='/login')
-                input.form-control(type='text', placeholder='Email Address' name='email' autofocus)
-                input.form-control(type='password', placeholder='Password' name='password')
-                button.primary-btn.loginBtn(type='submit') Log In
+            form(method='post' id='login-form' autocomplete="off")
+                input.form-control.loginEmail(type='text' placeholder='Email Address' name='email' autofocus)
+                input.form-control.loginPassword(type='password' placeholder='Password' name='password')
+                button.primary-btn.loginBtn(type='submit' id='submitLoginButton') Log In
+block scripts
+    script(src="/js/app.js")

@@ -1,21 +1,27 @@
 {
-  "name": "Ctrl-Alt-Eat",
+  "name": "my-recipes",
   "version": "1.0.0",
-  "description": "",
+  "description": "Application to store recipes.",
   "main": "app.js",
   "scripts": {
     "start": "node ./app",
     "test": "mocha"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Darrell Osborne",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "express-fileupload": "^0.1.4",
     "express-session": "^1.15.3",
-    "mongoose": "^4.10.8",
+    "mongoose": "^4.11.3",
+    "morgan": "^1.8.2",
     "pug": "^2.0.0-rc.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.5.0"
   }
 }

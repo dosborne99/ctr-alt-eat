@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    header.profile
+        div.headerContainer
+                a(href='/' class='listLogo')
+                    img(src='/img/logo3.svg')
+                a.btnCreateNewRecipe.btnShowAll(href='/myrecipes') Show All
+                a.btnCreateNewRecipe Add Recipe
+                a.btnLogOut(href='/logout')
+                    i(class="fa fa-sign-out" aria-hidden="true")
+    section.mainContent
+        div.fullViewWrapper
+            div.createNewInnerWrapper
+                div.createNewHeaderInfo
+                    h1 New Recipe
+                    p Please enter the details about your recipe below, and click 'Save'. Once saved, you can easily add a photo! It's also easy to edit, or change, any of these details, including the photo, in the future!
+                form(method='post' id='create-form')
+                    div.formGroup.groupCreate
+                        label(for="title") Title:
+                        input#title.create-form-control(type='text' placeholder='Title' name='title' autofocus)
+                    div.formGroup.groupCreate
+                        label(for="description") Description:
+                        input#description.create-form-control(type='text' placeholder='Short description...' name='description')
+                    div.formGroup.groupCreate
+                        label(for="ingredients") Ingredients:
+                        textarea#ingredients.area-form-control(rows="6" placeholder="Ingredients..." name="ingredients")
+                    div.formGroup.groupCreate
+                        label(for="directions") Directions:
+                        textarea#directions.area-form-control(rows="6" placeholder="Directions..." name="directions")
+                    div.createNewButtonGrp
+                        button.btnCreateNewRecipe.btnSaveNewRecipe(type='submit') Save Recipe
+                        button.btnCreateNewRecipe Cancel
+block scripts
+    script(src="/js/app.js")

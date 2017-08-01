@@ -2,3 +2,10 @@ language: node_js
 node_js: node
 services:
 - mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: Vh2Y8flZdKHjzUpKxnQVGUauI2dzRchjt2UtOhrw0BUVmEInf6DkGW4AWSYY7a+JjRiA0B5rzfpN7opzP17Nt5oWw1QUGumKOKYdjqjUSB02AdvEAcaJAw9wHahWYDmGevLnYSfOiR+5igcJrk7+OBaQaTcHP7Og0frCmTkO1cPw+LsJL2YB9dPy202Q+mDJmZ4aD746JeiAMUJXb99naMARff6XT5zzFBAoj0mvs5lut9OGB00iqdU8+ivgpdZQR42HWuVsaS8lGgc6+dGOtcc6r9R1hZLpc/OUrAqDQiw/2BEmVkphByisJjxz+Hv0Pd99kLDRnWe0pqOKxtEPmwj+w6oByoQr4Ilb98O567rm1yuGcjPDXC4UsjEUzkvlKUJF6rf7hv0tCRZxEfy19ARNTBhj8osFbyqn+Yc/vwLQ4a/UmG89fgY8NAG+v3jLlaDjwZS5pdIhfu39QGjK+dsYm9EpVnxn+iu+Ks695ym92RZR74wemogFvFbjApPiDbbKgxaIIRXBsjlaikXf0iAKnkYU6qh9KCyUSxpbeHRaY3EfI2zJKycA3mBneP07NYBC590jcdKHlJro+TI+MpKpGJ2lyYPWpEhmChHnr9tVaql+FnNyq+/sULjz0S+l8E0LDreBt329BxLCYXKuYjKUV0ZbqfC/2+QLAT/pqe0=
+  app: radiant-sierra-92052
+  on:
+    repo: dosborne99/my-recipes

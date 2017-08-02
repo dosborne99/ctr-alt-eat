@@ -1,6 +1,7 @@
 $(function() {
 
     var baseURL = "https://radiant-sierra-92052.herokuapp.com/";
+    // var baseURL = "http://localhost:3000/";
 
     $('#register-form').on('submit', function(e) {
         e.preventDefault();

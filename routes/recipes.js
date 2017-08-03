@@ -41,7 +41,7 @@ router.post('/create', (req, res, next) => {
             } else {
                 return res.json(recipe);
             }
-        });
+    });
 });
 
 // DELETE recipe/:id

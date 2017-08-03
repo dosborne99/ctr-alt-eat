@@ -7,7 +7,7 @@ router.post('/login', (req, res, next) => {
     if (req.body.email && req.body.password) {
         User.authenticate(req.body.email, req.body.password, (error, user) => {
             if (error || !user) {
-                const err = new Error('Wrong username or password.');
+                const err = new Error('Wrong email or password.');
                 err.status = 401;
                 return next(err);
             } else {

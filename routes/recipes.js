@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Recipe = require('../models/recipe');
+const bodyParser = require('body-parser');
+
+const jsonParser = bodyParser.json();
 
 // GET /myrecipes
 router.get('/myrecipes', (req, res, next) => {
@@ -39,9 +42,32 @@ router.post('/create', (req, res, next) => {
             if (error) {
                 return next(error);
             } else {
-                return res.json(recipe);
+                return res.status(201).json(recipe);
             }
     });
+});
+
+// // PUT recipe/:id
+router.put('/:id', jsonParser, (req, res, next) => {
+    if (!(req.params.id && req.body.title)) {
+      const message = 'A title is required.';
+      console.error(message);
+      return res.status(400).send(message);
+    }
+
+    const updated = {};
+    const updateableFields = ['title', 'description', 'ingredients', 'directions'];
+    updateableFields.forEach(field => {
+        if (field in req.body) {
+            updated[field] = req.body[field];
+        }
+    });
+
+    Recipe
+        .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
+        .exec()
+        .then(updatedPost => res.status(201).json())
+        .catch(err => res.status(500).json({message: 'Something went wrong'}));
 });
 
 // DELETE recipe/:id
@@ -51,7 +77,7 @@ router.delete('/:id', (req, res, next) => {
               if(err) {
                   return next(err);
               } else {
-                  res.status(200).end();
+                  res.status(204).end();
               }
           })
 });
@@ -75,10 +101,5 @@ router.post('/image/:id', (req, res) => {
         res.send(recipe.photo);
     });
 });
-
-// // PUT recipe/:id
-// router.put('/:id', (req, res, next) => {
-
-// });
 
 module.exports = router;

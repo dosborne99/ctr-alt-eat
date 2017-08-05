@@ -43,6 +43,17 @@ router.get('/fullview/:id', (req, res, next) => {
           });
 });
 
+// GET /myrecipes -Edit
+router.get('/myrecipes/:id', mid.isAth, (req, res) => {
+    Recipe.findById(req.params.id)
+      .exec((err, recipe) => {
+        if (err) {
+            return next(err);
+        } else {
+            res.render('editRecipe', {recipe});
+        }   
+      });
+})
 
 // GET /register -VIEW
 router.get('/register', mid.checkLoggedIn, (req, res) => {
@@ -53,5 +64,7 @@ router.get('/register', mid.checkLoggedIn, (req, res) => {
 router.get('/myrecipes', mid.isAth, (req, res) => {
     res.render('recipeList');
 })
+
+
 
 module.exports = router;

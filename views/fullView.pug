@@ -14,6 +14,7 @@ block content
             - var imgPath = recipe.photo ? recipe.photo : '/img/noPhoto.svg';
             - var imgBtnTooltip = recipe.photo ? "Change Photo" : "Add Photo";
             - var recipeID = recipe._id;
+            - var editLink = '/myrecipes/' + recipeID;
             .placeHolder
                 img#fullViewRecipePhoto(src=imgPath)
             .singleViewHeader
@@ -24,21 +25,15 @@ block content
                     i(class="fa fa-trash" aria-hidden="true")
                 form(ref='uploadForm' id='uploadForm' method='POST' encType="multipart/form-data")
                     input(type='file' id='imageUploadInput' data-id=recipeID name='sampleFile' class='custom-file-input' title=imgBtnTooltip)
-                a.btnSingleViewHeader(title='Edit Recipe')
+                a.btnSingleViewHeader(title='Edit Recipe' href=editLink)
                     i(class="fa fa-pencil" aria-hidden="true")
             hr.style-one
-            if(recipe.servings)
-                h2 Servings
-                p #{recipe.servings}
-                hr.style-one
-            h2 Ingredients
-            p.showCarriageReturns #{recipe.ingredients}
+            div.ingredientsListBlock
+                h2 Ingredients
+                p.showCarriageReturns #{recipe.ingredients}
             hr.style-one
-            h2 Directions
-            p.showCarriageReturns #{recipe.directions}
-            if(recipe.category)
-                hr.style-one
-                h2 Category
-                p #{recipe.category}
+            div.directionsBlock
+                h2 Directions
+                p.showCarriageReturns #{recipe.directions}
 block scripts
     script(src="/js/app.js")

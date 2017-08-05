@@ -12,23 +12,24 @@ block content
     section.mainContent
         div.fullViewWrapper
             div.createNewInnerWrapper
+                - let recValue = recipe; 
                 div.createNewHeaderInfo
-                    h1 Edit
+                    h1 Edit Recipe
                 form(method='post' id='edit-form')
                     div.formGroup.groupCreate
                         label(for="title") Title:
-                        input#title.create-form-control(type='text' placeholder='Title' name='title' autofocus)
+                        input#title.create-form-control(type='text' placeholder='Title' name='title' autofocus value=recValue.title)
                     div.formGroup.groupCreate
                         label(for="description") Description:
-                        input#description.create-form-control(type='text' placeholder='Short description...' name='description')
+                        input#description.create-form-control(type='text' placeholder='Short description...' name='description' value=recValue.description)
                     div.formGroup.groupCreate
                         label(for="ingredients") Ingredients:
-                        textarea#ingredients.area-form-control(rows="6" placeholder="Ingredients..." name="ingredients")
+                        textarea#ingredients.area-form-control(rows="6" placeholder="Ingredients..." name="ingredients") #{recipe.ingredients}
                     div.formGroup.groupCreate
                         label(for="directions") Directions:
-                        textarea#directions.area-form-control(rows="6" placeholder="Directions..." name="directions")
+                        textarea#directions.area-form-control(rows="6" placeholder="Directions..." name="directions") #{recipe.directions}
                     div.createNewButtonGrp
-                        button.btnCreateNewRecipe.btnSaveNewRecipe(type='submit') Save Changes
+                        button.btnCreateNewRecipe#btnSaveEditedRecipe(type='submit' data-id=recValue._id) Save Changes
                         button.btnCreateNewRecipe Cancel
 block scripts
     script(src="/js/app.js")

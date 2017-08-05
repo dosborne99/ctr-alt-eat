@@ -6,6 +6,7 @@ html {
     position: relative;
 }
 h1, h2, h3 {
+    margin: 0;
     font-family: 'Oswald', sans-serif;
 }
 h1 {
@@ -375,9 +376,10 @@ hr.style-one {
     height: 1px;
     background: #333;
     background-image: linear-gradient(to right, #CFC3A9, #4C422E, #CFC3A9);
+    margin: 0;
 }
 .descriptionFullView {
-    margin-top: 0;
+    margin: 0 0 1.25em 0;
 }
 .titleDescriptionBlock {
     margin-right: auto;
@@ -395,6 +397,12 @@ hr.style-one {
     background-color: #67e8b1; 
 }
 .showCarriageReturns {
+    margin: 0 0 1.25em 0;
     white-space: pre-wrap;
     line-height: 1.5;
+}
+.fullViewWrapper h2,
+.titleDescriptionBlock h1 {
+    margin-bottom: 5px;
+    padding-top: 20px;
 }

@@ -65,7 +65,23 @@ $(function() {
             })
         }).done (function (recipe) {
             window.location.replace(baseURL + "fullview/" + recipe._id);
-        })
+        });
+    });
+
+    $('#btnSaveEditedRecipe').on('click', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/recipes/' + $(this).data('id'),
+            method: 'PUT',
+            data: ({
+                title: $('#title').val(),
+                description: $('#description').val(),
+                ingredients: $('#ingredients').val(),
+                directions: $('#directions').val()
+            })
+        }).done (function (recipe) {
+            window.location.replace(baseURL + "fullview/" + recipe._id);
+        });
     })
 
 });

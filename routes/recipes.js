@@ -1,32 +1,32 @@
 const express = require('express');
 const router = express.Router();
 const Recipe = require('../models/recipe');
-const bodyParser = require('body-parser');
 
-const jsonParser = bodyParser.json();
 
 // GET /myrecipes
 router.get('/myrecipes', (req, res, next) => {
-    Recipe.find({user: req.session.userId})
-          .exec((err, recipes) => {
-              if (err) {
-                  return next(err);
-              } else {
-                  res.status(200).json(recipes);
-              }
-          });
+    Recipe
+        .find({user: req.session.userId})
+        .exec((err, recipes) => {
+            if (err) {
+                return next(err);
+            } else {
+                res.status(200).json(recipes);
+            }
+        });
 });
 
 // GET recipes/:id
 router.get('/:id', (req, res, next) => {
-    Recipe.findById(req.params.id)
-          .exec((err, recipe) => {
-              if(err) {
-                  return next(err);
-              } else {
-                  res.status(200).json(recipe);
-              }
-          });
+    Recipe
+        .findById(req.params.id)
+        .exec((err, recipe) => {
+            if(err) {
+                return next(err);
+            } else {
+                res.status(200).json(recipe);
+            }
+        });
 });
 
 // POST /create
@@ -38,21 +38,22 @@ router.post('/create', (req, res, next) => {
             ingredients: req.body.ingredients,
             directions: req.body.directions
         };
-    Recipe.create(recipeData, (error, recipe) => {
+    Recipe
+        .create(recipeData, (error, recipe) => {
             if (error) {
                 return next(error);
             } else {
                 return res.status(201).json(recipe);
             }
-    });
+        });
 });
 
 // // PUT recipe/:id
-router.put('/:id', jsonParser, (req, res, next) => {
+router.put('/:id', (req, res, next) => {
     if (!(req.params.id && req.body.title)) {
-      const message = 'A title is required.';
-      console.error(message);
-      return res.status(400).send(message);
+        const message = 'A title is required.';
+        console.error(message);
+        return res.status(400).send(message);
     }
 
     const updated = {};
@@ -66,20 +67,21 @@ router.put('/:id', jsonParser, (req, res, next) => {
     Recipe
         .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
         .exec()
-        .then(updatedPost => res.status(201).json())
+        .then(recipe => res.status(201).json(recipe))
         .catch(err => res.status(500).json({message: 'Something went wrong'}));
 });
 
 // DELETE recipe/:id
 router.delete('/:id', (req, res, next) => {
-    Recipe.findByIdAndRemove(req.params.id)
-          .exec((err, recipe) => {
-              if(err) {
-                  return next(err);
-              } else {
-                  res.status(204).end();
-              }
-          })
+    Recipe
+        .findByIdAndRemove(req.params.id)
+        .exec((err, recipe) => {
+            if(err) {
+                return next(err);
+            } else {
+                res.status(204).end();
+            }
+        })
 });
 
 // POST /image

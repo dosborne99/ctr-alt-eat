@@ -24,25 +24,25 @@ function createFakeUser() {
 };
 
 function seedRecipeData() {
-  console.info('Seeding recipe data');
-  const seedData = [];
-  let user;
-  return User
-    .findOne()
-    .exec()
-    .then(_user => {
-        user = _user._id;
-          for (let i=1; i<=10; i++) {
-            seedData.push({
-              user: user,
-              title: faker.lorem.word(),
-              description: faker.lorem.sentence(),
-              ingredients: faker.lorem.text(),
-              directions: faker.lorem.text()
-            });
-          }
-        return Recipe.insertMany(seedData);
-    });  
+    console.info('Seeding recipe data');
+    const seedData = [];
+    let user;
+    return User
+        .findOne()
+        .exec()
+        .then(_user => {
+            user = _user._id;
+            for (let i=1; i<=10; i++) {
+                seedData.push({
+                user: user,
+                title: faker.lorem.word(),
+                description: faker.lorem.sentence(),
+                ingredients: faker.lorem.text(),
+                directions: faker.lorem.text()
+                });
+            }
+            return Recipe.insertMany(seedData);
+        });  
 };
 
 function tearDownDb() {
@@ -61,11 +61,8 @@ describe('My Recipes API resource', function() {
   });
 
   beforeEach(function() {
-    return createFakeUser();
-  });
-
-  beforeEach(function() {
-    return seedRecipeData();
+    return createFakeUser()
+    .then(seedRecipeData);
   });
 
   afterEach(function() {

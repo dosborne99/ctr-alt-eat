@@ -1,4 +1,4 @@
- * {
+* {
     box-sizing: border-box;
 } 
 html {
@@ -33,13 +33,13 @@ body {
     align-items: center;
     justify-content: space-between;
     max-width: 1100px;
-    height: 90px;
+    height: 85px;
     margin: 0 auto;
 }
 .recipeList {
     width: 49%;
     padding: 15px;
-    margin: 10px 0;
+    margin: 0 0 15px 0;
     text-decoration: none;
     background: rgba(255, 255, 255, 0.95);
     background-clip: padding-box;
@@ -47,12 +47,12 @@ body {
     color: #291709;
 }
 .recipeList:hover {
-    border: 3px solid #FB8030; 
-    /* border: 3px solid #67e8b1; */
+    border: 3px solid #FB8030;
 }
 .singleViewHeader {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .titleDescriptionBlock h1 {
     margin-bottom: 5px;
@@ -74,27 +74,30 @@ body {
     justify-content: space-between; 
     align-items: flex-start;
     flex-wrap: wrap;
-    /* flex-direction: column; */
     max-width: 1100px;
-    /* padding: 10px; */
-    margin: 125px auto 55px auto;
+    margin: 105px auto 55px auto;
 }
-.btnCreateNewRecipe {
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnCreateNewRecipe,
+.btnLogOut {
     font-family: 'Quicksand';
     background: transparent;
     text-align: center;
-    color: #291709;
-    border: 1px solid #291709;
-    border-radius: 3px;
+    color: #2a1a10;
     cursor: pointer;
-    padding: 8px;
-    font-size: .9em;
-    width: 125px;
+    padding: 10px;
+    margin: 0 10px;
+    font-size: 1.05em;
+    font-weight: 300;
     transition: .3s;
 }
-.btnCreateNewRecipe:hover {
-    background: #67e8b1;
-    /* color: #fff; */
+.btnCreateNewRecipe:hover,
+.btnLogOut:hover {
+    color: #FB8030;
     transition: .3s;
 }
 .btnShowAll {
@@ -103,15 +106,10 @@ body {
     margin-right: 10px;
     text-rendering: auto;
 }
-.btnLogOut {
-    width: 30px;
-    font-size: 25px;
-    height: 35px;
-    border: none;
-    text-align: right;
-    line-height: 35px; 
-    padding: 0;
-    margin-left: 5px;
+.singleViewBtnContainer {
+    display: flex;
+    flex-grow: 2;
+    justify-content: flex-end;
 }
 .btnSingleViewHeader {
     width: 40px;
@@ -122,12 +120,11 @@ body {
     color: #9a9a9a;
     border: 1px solid #9a9a9a;
     border-radius: 50%;
-    margin-left: 8px;
     cursor: pointer;
 }
 .profile {
     background: rgba(255, 255, 255, 0.95);
-    height: 90px;
+    height: 85px;
     border-bottom: 1px solid #777777;
     position: fixed;
     top: 0;
@@ -190,7 +187,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     line-height: 40px;
-    transition: .3s;
+    transition: background-color .3s;
 }
 .primary-btn:focus {
     outline: none;
@@ -264,7 +261,7 @@ body {
     width: 100%;
     margin: 15px auto;
 }
- #create-form {
+#create-form {
     margin-top: 40px;
 } 
 .loginForm {
@@ -304,7 +301,7 @@ body {
 }
 .listLogo {
     margin-right: auto;
-    width: 240px;
+    width: 210px;
 }
 .listLogo img {
     vertical-align: middle;
@@ -344,6 +341,7 @@ body {
 #uploadForm {
     height: 40px;
     margin-left: 8px;
+    margin-right: 8px;
 }
 .custom-file-input::-webkit-file-upload-button {
     visibility: hidden;
@@ -382,8 +380,8 @@ hr.style-one {
     margin: 0 0 1.25em 0;
 }
 .titleDescriptionBlock {
-    margin-right: auto;
-}
+    padding-right: 15px;
+} 
 .createNewButtonGrp {
     text-align: center;
     padding: 20px; 
@@ -405,4 +403,74 @@ hr.style-one {
 .titleDescriptionBlock h1 {
     margin-bottom: 5px;
     padding-top: 20px;
+}
+@media(max-width: 769px) {
+    .outerWelcomeBox {
+        width: 325px;
+        height: 330px;
+    }
+    .welcomeBox {
+        width: 295px;
+        height: 300px;
+    }
+    .outerSignUpBox {
+        width: 325px;
+    }
+    .innerSignUpBox {
+        width: 295px;
+    }
+    .signUpForm {
+        width: 251px;
+    }
+    .formGroup label {
+        margin-left: 16px;
+    }
+    .authBtn,
+    .createBtn,
+    .loginBtn,
+    .loginEmail,
+    .loginPassword,
+    .form-control {
+        width: 220px;
+    }
+    .loginEmail,
+    .loginPassword {
+        font-size: .9em;
+    }
+    .logo {
+        width: 220px;
+    }
+    .profile {
+        height: 115px;
+    }
+    .listLogo {
+        width: 185px;
+        margin-left: auto;
+        padding-top: 10px;
+    }
+    .tagline {
+        font-size: .85em;
+    }
+    .mainContent {
+        margin-top: 135px;
+        justify-content: space-around;
+    }
+    .recipeList {
+        width: 100%;
+    }
+    .headerContainer {
+        flex-direction: column;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .placeHolder img {
+        height: 250px;
+    }
+}
+
+@media(max-width: 1200px) {
+    .headerContainer,
+    .mainContent {
+        width: 95%;
+    }
 }

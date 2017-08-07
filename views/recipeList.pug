@@ -6,9 +6,10 @@ block content
             a(href='/' class='listLogo')
                     img(src='/img/logo3.svg')
             //- input.searchTitles(type='text' placeholder='Search your recipe titles...')
-            a.btnCreateNewRecipe(href='/create') Add Recipe
-            a.btnLogOut(href='/logout')
-                i(class="fa fa-sign-out" aria-hidden="true")
+            div.nav
+                a.btnCreateNewRecipe(href='/create') Add Recipe
+                a.btnLogOut(href='/logout') Log Out
+                //- i(class="fa fa-sign-out" aria-hidden="true")
     section.mainContent
 
 block scripts

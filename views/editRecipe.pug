@@ -5,10 +5,10 @@ block content
         div.headerContainer
                 a(href='/' class='listLogo')
                     img(src='/img/logo3.svg')
-                a.btnCreateNewRecipe.btnShowAll(href='/myrecipes') Show All
-                a.btnCreateNewRecipe Add Recipe
-                a.btnLogOut(href='/logout')
-                    i(class="fa fa-sign-out" aria-hidden="true")
+                div.nav
+                    a.btnCreateNewRecipe.btnShowAll(href='/myrecipes') Show All
+                    a.btnCreateNewRecipe(href='/create') Add Recipe
+                    a.btnLogOut(href='/logout') Log Out
     section.mainContent
         div.fullViewWrapper
             div.createNewInnerWrapper
@@ -30,6 +30,6 @@ block content
                         textarea#directions.area-form-control(rows="6" placeholder="Directions..." name="directions") #{recipe.directions}
                     div.createNewButtonGrp
                         button.btnCreateNewRecipe#btnSaveEditedRecipe(type='submit' data-id=recValue._id) Save Changes
-                        button.btnCreateNewRecipe Cancel
+                        button.btnCreateNewRecipe#btnCancel Cancel
 block scripts
     script(src="/js/app.js")

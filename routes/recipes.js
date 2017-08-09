@@ -98,7 +98,7 @@ router.post('/image/:id', (req, res) => {
             return res.status(500).send(err);
     });
 
-    Recipe.findByIdAndUpdate(req.params.id, { $set: { photo: photoPath }}, { new: true }, function (err, recipe) {
+    Recipe.findByIdAndUpdate(req.params.id, {$set: {photo: photoPath}}, { new: true }, function (err, recipe) {
         if (err) return res.send(err);
         res.send(recipe.photo);
     });

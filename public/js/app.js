@@ -1,7 +1,7 @@
 $(function() {
 
-    var baseURL = "https://radiant-sierra-92052.herokuapp.com/";
-    // var baseURL = "http://localhost:3000/";
+    // var baseURL = "https://radiant-sierra-92052.herokuapp.com/";
+    var baseURL = "http://localhost:3000/";
 
     $('#register-form').on('submit', function(e) {
         e.preventDefault();
@@ -15,6 +15,17 @@ $(function() {
                 confirmPassword: $('#confirmPassword').val()
             })
         }).done (function(user){
+            window.location.replace(baseURL + "myrecipes");
+        });
+    });
+
+    $('#demo-button').on('click', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: 'users/login',
+            method: 'POST',
+            data: ({email: 'demo@thinkful.com', password: 'thinkful-rocks'})
+        }).done (function(user) {
             window.location.replace(baseURL + "myrecipes");
         });
     });

@@ -154,25 +154,33 @@ body {
     margin-top: 0;
     font-style: italic;
 }
-.welcomeBox {
+.welcomeBox,
+.welcomeBoxLogin {
     position: absolute;
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
     border: 2px solid #291709;
     width: 550px;
-    height: 330px;
+    height: 372px;
     padding: 20px;
     text-align: center;
 }
-.outerWelcomeBox {
+.outerWelcomeBox,
+.outerWelcomeBoxLogin {
     background: rgba(255, 255, 255, 0.9);
     position: absolute;
     top: 50%;
     right: 50%;
     width: 580px;
-    height: 360px;
+    height: 402px;
 	transform: translate(50%, -50%);
+}
+.welcomeBoxLogin {
+    height: 340px;
+}
+.outerWelcomeBoxLogin {
+    height: 360px;
 }
 .primary-btn{
     display: block;
@@ -404,13 +412,22 @@ hr.style-one {
     margin-bottom: 5px;
     padding-top: 20px;
 }
+#demo-button {
+    margin-top: -5px;
+}
 @media(max-width: 769px) {
     .outerWelcomeBox {
         width: 325px;
-        height: 330px;
+        height: 372px;
     }
     .welcomeBox {
         width: 295px;
+        height: 342px;
+    }
+    .outerWelcomeBoxLogin {
+        height: 330px;
+    }
+    .welcomeBoxLogin {
         height: 300px;
     }
     .outerSignUpBox {
@@ -426,6 +443,7 @@ hr.style-one {
         margin-left: 16px;
     }
     .authBtn,
+    #demo-button,
     .createBtn,
     .loginBtn,
     .loginEmail,

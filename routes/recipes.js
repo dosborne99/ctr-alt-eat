@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const Recipe = require('../models/recipe');
+const AWS = require('aws-sdk');
 
+const {AWS_KEY, AWS_SECRET_ID} = require('../config.js');
 
 // GET /myrecipes
 router.get('/myrecipes', (req, res, next) => {
@@ -88,19 +90,27 @@ router.delete('/:id', (req, res, next) => {
 router.post('/image/:id', (req, res) => {
     if (!req.files)
         return res.status(400).send('No files were uploaded.');
- 
-    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file 
-    let sampleFile = req.files.sampleFile;
-    let photoPath = '/user-image/' + req.params.id + '.jpg';
 
-    sampleFile.mv('public' + photoPath, function(err) {
-        if (err)
-            return res.status(500).send(err);
-    });
+    const base64data = new Buffer(req.files.sampleFile.data, 'binary');
 
-    Recipe.findByIdAndUpdate(req.params.id, { $set: { photo: photoPath }}, { new: true }, function (err, recipe) {
-        if (err) return res.send(err);
-        res.send(recipe.photo);
+    AWS.config.update({ accessKeyId: AWS_KEY, secretAccessKey: AWS_SECRET_ID });
+
+    const s3 = new AWS.S3();
+    s3.upload({
+        Bucket: 'my-recipes-app-photos',
+        Key: req.params.id + '.jpg',
+        Body: base64data,
+        ACL: 'public-read'
+    },function (err, data) {
+        if (err) {
+            console.log('Something went wrong');
+        } else {
+            let photoPath = data.Location;
+            Recipe.findByIdAndUpdate(req.params.id, {$set: {photo: photoPath}}, { new: true }, function (err, recipe) {
+                if (err) return res.send(err);
+                res.send(recipe.photo);
+            });
+        }
     });
 });
 

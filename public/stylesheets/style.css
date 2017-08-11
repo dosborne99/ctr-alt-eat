@@ -83,7 +83,8 @@ body {
 }
 
 .btnCreateNewRecipe,
-.btnLogOut {
+.btnLogOut,
+.formButton {
     font-family: 'Quicksand';
     background: transparent;
     text-align: center;
@@ -95,9 +96,17 @@ body {
     font-weight: 300;
     transition: .3s;
 }
+.formButton {
+    border: 1px solid #2a1a10;
+    border-radius: 3px;
+}
 .btnCreateNewRecipe:hover,
 .btnLogOut:hover {
     color: #FB8030;
+    transition: .3s;
+}
+.formButton:hover {
+    background-color: #3de08e;
     transition: .3s;
 }
 .btnShowAll {
@@ -131,7 +140,7 @@ body {
     left: 0;
     right: 0;
 }
-.searchTitles {
+/* .searchTitles {
     margin-right: 10px;
     background: rgba(255, 255, 255, 0.7);
     width: 275px;
@@ -145,7 +154,7 @@ body {
     font-style: italic;
     color: #7a7a7a;
     font-weight: 300;
-}
+} */
 .logo {
     padding: 25px 0 5px 0;
     width: 280px;
@@ -169,12 +178,12 @@ body {
 .outerWelcomeBox,
 .outerWelcomeBoxLogin {
     background: rgba(255, 255, 255, 0.9);
-    position: absolute;
-    top: 50%;
-    right: 50%;
+    position: relative;
+    top: 50vh;
+    left: 50vw;
     width: 580px;
     height: 402px;
-	transform: translate(50%, -50%);
+	transform: translate(-50%, -50%);
 }
 .welcomeBoxLogin {
     height: 340px;
@@ -282,12 +291,13 @@ body {
 }
 .outerSignUpBox {
     background: rgba(255, 255, 255, 0.9);
-    position: absolute;
-    top: 50%;
-    right: 50%;
+    position: relative;
+    /* top: 50%;
+    right: 50%; */
+    margin: 60px auto;
     width: 580px;
     height: 600px;
-	transform: translate(50%, -50%);
+	/* transform: translate(50%, -50%); */
 }
 .innerSignUpBox {
     position: absolute;
@@ -399,9 +409,15 @@ hr.style-one {
     margin: 0 10px;
     width: 200px;
 }
-.btnSaveNewRecipe {
-    background-color: #67e8b1; 
+.btnSaveNewRecipe,
+#btnSaveEditedRecipe {
+    background-color: #67e8b1;
 }
+#btnSaveEditedRecipe:hover {
+    background-color: #3de08e;
+    transition: .3s;
+}
+
 .showCarriageReturns {
     margin: 0 0 1.25em 0;
     white-space: pre-wrap;
@@ -423,6 +439,10 @@ hr.style-one {
     .welcomeBox {
         width: 295px;
         height: 342px;
+    }
+    .outerWelcomeBox,
+    .outerWelcomeBoxLogin {
+        margin-bottom: 70px;
     }
     .outerWelcomeBoxLogin {
         height: 330px;

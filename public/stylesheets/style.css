@@ -223,7 +223,8 @@ body {
     background-color: transparent;
 }
 .authBtn,
-.createBtn {
+.createBtn,
+#demo-button {
     padding-top: 2px;
     padding-bottom: 3px;
 }

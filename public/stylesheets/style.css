@@ -26,6 +26,7 @@ body {
     font-family: 'Quicksand', 'Helvetica-neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
     max-width: 100%;
+    min-height: 100%;
     margin: 0 auto;
 }
 .headerContainer {
@@ -179,7 +180,7 @@ body {
 .outerWelcomeBoxLogin {
     background: rgba(255, 255, 255, 0.9);
     position: relative;
-    top: 50vh;
+    bottom: -50vh;
     left: 50vw;
     width: 580px;
     height: 402px;
@@ -443,6 +444,7 @@ hr.style-one {
     .outerWelcomeBox,
     .outerWelcomeBoxLogin {
         margin-bottom: 70px;
+        /* margin-top: 70px; */
     }
     .outerWelcomeBoxLogin {
         height: 330px;

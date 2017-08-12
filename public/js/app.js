@@ -1,7 +1,7 @@
 $(function() {
 
     var baseURL = "https://radiant-sierra-92052.herokuapp.com/";
-    // var baseURL = "http://localhost:3000/";
+    var baseURL = "http://localhost:3000/";
 
     $('#register-form').on('submit', function(e) {
         e.preventDefault();
@@ -93,6 +93,10 @@ $(function() {
         }).done (function (recipe) {
             window.location.replace(baseURL + "fullview/" + recipe._id);
         });
+    })
+
+    $('#btnCancel').on('click', function(e) {
+        window.location.replace(baseURL + "myrecipes/");
     })
 
 });

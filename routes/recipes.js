@@ -106,10 +106,11 @@ router.post('/image/:id', (req, res) => {
             console.log('Something went wrong');
         } else {
             let photoPath = data.Location;
-            Recipe.findByIdAndUpdate(req.params.id, {$set: {photo: photoPath}}, { new: true }, function (err, recipe) {
-                if (err) return res.send(err);
-                res.send(recipe.photo);
-            });
+            Recipe
+                .findByIdAndUpdate(req.params.id, {$set: {photo: photoPath}}, { new: true }, function (err, recipe) {
+                    if (err) return res.send(err);
+                    res.send(recipe.photo);
+                });
         }
     });
 });

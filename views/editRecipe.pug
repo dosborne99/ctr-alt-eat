@@ -15,7 +15,7 @@ block content
                 - let recValue = recipe; 
                 div.createNewHeaderInfo
                     h1 Edit Recipe
-                form(method='post' id='edit-form')
+                form(method='put' id='edit-form')
                     div.formGroup.groupCreate
                         label(for="title") Title:
                         input#title.create-form-control(type='text' placeholder='Title' name='title' autofocus value=recValue.title)
@@ -29,7 +29,6 @@ block content
                         label(for="directions") Directions:
                         textarea#directions.area-form-control(rows="6" placeholder="Directions..." name="directions") #{recipe.directions}
                     div.createNewButtonGrp
-                        button.btnCreateNewRecipe#btnSaveEditedRecipe(type='submit' data-id=recValue._id) Save Changes
-                        button.btnCreateNewRecipe#btnCancel Cancel
+                        button.formButton#btnSaveEditedRecipe(type='submit' data-id=recValue._id) Save Changes
 block scripts
     script(src="/js/app.js")
